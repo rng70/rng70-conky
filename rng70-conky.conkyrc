@@ -199,6 +199,6 @@ ${font Roboto:BOLD:size=10}${color2}${execp  nvidia-smi --query-supported-clocks
 ${font StyleBats:size=20}${font}${offset 30}${voffset -12}${color2}GPU Temp${color}${alignr}${execi 60 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader} °C
 # ${offset 30}Fan Speed ${alignr}${execi 60 nvidia-settings -q [fan:0]/GPUCurrentFanSpeed -t} %
 ${offset 30}${color2}GPU Clock${color}${alignr}${execi 60 nvidia-settings -q GPUCurrentClockFreqs | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//' | cut -d, -f1} MHz
-${offset 30}${color2}Mem Clock${color}${alignr}${execi 86400 nvidia-settings -q all| grep -m 1 GPUCurrentProcessorClockFreqs | awk '{print $4}' | sed 's/.$//'} MHz
-${offset 30}${color2}Mem Used${color}${alignr}${execi 60 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB0
+# ${offset 30}${color2}Mem Clock${color}${alignr}${execi 86400 nvidia-settings -q all| grep -m 1 GPUCurrentProcessorClockFreqs | awk '{print $4}' | sed 's/.$//'} MHz
+${offset 30}${color2}Mem Used${color}${alignr}${execi 60 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB
 ]];
